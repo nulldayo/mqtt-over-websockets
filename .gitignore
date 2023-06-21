@@ -1,2 +1,2 @@
-# Ignore WiFi SSID and password
-credentials.txt
+# Ignore files containing WiFi SSID and password
+credentials.*
