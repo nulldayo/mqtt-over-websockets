@@ -16,3 +16,4 @@ Presentations are on Mon July 11th and Thur July 14th, order of presentations ch
 * https://cedalo.com/blog/enabling-websockets-over-mqtt-with-mosquitto/
 * https://github.com/espressif/esp-idf/tree/master/examples/protocols/mqtt/ws
 * https://github.com/hideakitai/MQTTPubSubClient
+* https://public.cloud.shiftr.io
