@@ -35,7 +35,7 @@ void setup() {
     dht.begin();
 
     // Read credentials from flash memory
-    Serial.println("Getting credentials for WLAN ..");
+    Serial.print("Getting credentials for WLAN ..");
     preferences.begin("credentials", false);
     device = preferences.getString("device", "");
     ssid = preferences.getString("ssid", ""); 
@@ -45,6 +45,7 @@ void setup() {
       Serial.println(" no values were saved for ssid or password!");
     }
     else {
+    Serial.println(" complete!");
     // Connect to Wi-Fi
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid.c_str(), password.c_str());
@@ -53,10 +54,10 @@ void setup() {
       Serial.print('.');
       delay(1000);
     }
-    Serial.println(" connected as " + WiFi.localIP());  
+    Serial.println(" connected as " + WiFi.localIP().toString());  
   }
     // Connect to Host with MQTT over WebSocket
-    Serial.println("Connecting to MQTT broker ..");
+    Serial.print("Connecting to MQTT broker ..");
     client.beginSSL(mqtt_host, mqtt_port);
     client.setReconnectInterval(2000);
 
@@ -85,7 +86,8 @@ void loop() {
 //    unsigned int ledPow = 0;
     float h = dht.readHumidity();
     float t = dht.readTemperature();
-    String message;
+    String topic;
+    String payload;
     
     // Should be called to trigger callbacks
     mqtt.update();
@@ -100,9 +102,10 @@ void loop() {
           Serial.println("Failed to read from DHT.");
         return;
         }else{
-          message = "Humidity: " + String(h) + " Temperature: " + String(t) + "*C";
-          mqtt.publish("/des/mqtt-over-websockets/esp32", message);
-          Serial.println("MQTT message published: " + message);
+          topic = "/des/mqtt-over-websockets/esp32/";
+          payload = device + " | Humidity: " + String(h) + " Temperature: " + String(t) + "*C";
+          mqtt.publish(topic, payload);
+          Serial.println("MQTT message published: " + payload);
         }
     }
     digitalWrite(LED, LOW);
