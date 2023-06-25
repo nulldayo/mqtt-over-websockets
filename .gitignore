@@ -1,2 +1,3 @@
 # Ignore files containing WiFi SSID and password
 credentials.*
+sdkconfig.*
