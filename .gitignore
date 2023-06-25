@@ -1,3 +1,7 @@
 # Ignore files containing WiFi SSID and password
 credentials.*
+esp32/ws/sdkconfig
 sdkconfig.*
+
+# Ignore compiled code
+build/
