@@ -1,19 +1,10 @@
-# MQTT over WebSockets
-The content of this repository originates from the programming project of the course "Distributed Embedded Systems" at the University of Rostock.
-
-## Tasks
-* Demonstrate WebSockets using MQTT as overlayed tunnel, e.g. with seminar's sensor I/O task
-* Run, describe/analyse behavior with Wireshark
-
-## Deadline
-* Settle topic and groups: Monday June 12th 00:00 UTC
-* Upload your assets: Friday July 8th 00:00 UTC
- 
-Presentations are on Mon July 11th and Fri July 14th, order of presentations chosen randomly. Topics presented may also be addressed in part in the exam.
-
-## Links
-* https://studip.uni-rostock.de/wiki.php?cid=6b3f5c148993734906d4a284f2df73f5
-* https://cedalo.com/blog/enabling-websockets-over-mqtt-with-mosquitto/
-* https://github.com/espressif/esp-idf/tree/master/examples/protocols/mqtt/ws
-* https://github.com/hideakitai/MQTTPubSubClient
-* https://public.cloud.shiftr.io
+# Visualized Packets on Wireshark
+The ![Alt text](../screenshots/1.png?raw=true "Optional Title") shows the behaviour of a normal QoS-0 published message on MQTT over TCP (1883).
+![Alt text](../screenshots/2.png?raw=true "Optional Title") shows the behaviour of a normal QoS-1 sequence.
+![Alt text](../screenshots/3.png?raw=true "Optional Title") shows the behaviour of a normal QoS-2 sequence.
+![Alt text](../screenshots/4.png?raw=true "Optional Title") shows the configuration settings on MQTT Explorer.
+![Alt text](../screenshots/5.png?raw=true "Optional Title") shows the initial connection of MQTT Explorer to the Broker on the pi.
+![Alt text](../screenshots/6.png?raw=true "Optional Title") shows the publish window of MQTT Explorer.
+![Alt text](../screenshots/7.png?raw=true "Optional Title") shows the various topics of the MQTT Broker (pi)
+![Alt text](../screenshots/8.png?raw=true "Optional Title") here you can see how the packet arrived at the MQTT broker. packet no. 352 to 359 are showing the communication sequence between the VM and pi. Packet no. 356 is the subscription of mosquitto on the VM for the pi.
+![Alt text](../screenshots/9.png?raw=true "Optional Title") the content of the mqtt message (over ws) can also be seen in packet no. 358.
