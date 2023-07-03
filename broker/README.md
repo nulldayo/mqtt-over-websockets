@@ -4,32 +4,28 @@ First, install mosquitto (and optionally mosquitto-clients)
 ```
 sudo apt install mosquitto
 ```
-
-then, change the configuration of mosquitto with nano
+then, change the configuration of mosquitto in /etc/mosquitto/mosquitto.conf or create a new configuration file for mosquitto with nano
 ```
-sudo nano /etc/mosquitto/mosquitto.conf
+sudo nano /etc/mosquitto/conf.d/mosquitto.conf
 ```
 
-setup the listeners settings: 
+add the following lines: 
 ```
 listener 1883
 listener 8080
 protocol websockets
 allow_anonymous true
-```
 
-in the logging section, add the following:
-```
 connection_messages true
 log_timestamp true
 ```
 
-Now you can run Mosquitto with these settings using the -c flag
+Now Websocket packets will be received on port 8080. Run Mosquitto with these settings using the -c flag
 ```
-mosquitto -c /etc/mosquitto/mosquitto.conf
+mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
 ```
 
-If Mosquitto is already running, stop the service
+Or if Mosquitto is already running, restart the service with
 ```
-sudo systemctl stop mosquitto
+sudo systemctl restart mosquitto
 ````
