@@ -1,4 +1,4 @@
-# MQTT over Websockets
+# MQTT over WebSockets
 The content of this repository originates from the programming project of the course "Distributed Embedded Systems" at the University of Rostock.
 
 ## Tasks
