@@ -20,12 +20,12 @@ connection_messages true
 log_timestamp true
 ```
 
-Now Websocket packets will be received on port 8080. Run Mosquitto with these settings using the -c flag
+Now WebSocket packets will be received on port 8080. Run Mosquitto with these settings using the -c flag
 ```
 mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
 ```
 
-Or if Mosquitto is already running, restart the service with
+Or if mosquitto is already running, restart the service with
 ```
 sudo systemctl restart mosquitto
 ````
