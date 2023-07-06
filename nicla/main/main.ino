@@ -39,6 +39,7 @@ void setup() {
 
   BLE.setLocalName("NiclaSenseME"); // set name for connection
   BLE.setAdvertisedService("environmentService"); // advertise environment service
+  BLE.setAdvertisedServiceUuid("181A");
   
   environmentService.addCharacteristic(tempCharacteristic);
   environmentService.addCharacteristic(pressureCharacteristic);
