@@ -14,6 +14,8 @@ static boolean doScan = false;
 static BLERemoteCharacteristic* pRemoteCharacteristic;
 static BLEAdvertisedDevice* myDevice;
 
+float rxReading;
+
 static void notifyCallback(
   BLERemoteCharacteristic* pBLERemoteCharacteristic,
   uint8_t* pData,
@@ -23,11 +25,16 @@ static void notifyCallback(
     Serial.print(pBLERemoteCharacteristic->getUUID().toString().c_str());
     Serial.print(" of data length ");
     Serial.println(length);
+//    huge struggle here lol
 //    int tmp = (int)strtol((char*)pData, NULL, 16);
 //    float tmp = atof(strrev((char*)pData));
-    float tmp = atof((char*)pData);
+//    float tmp = atof((char*)pData);
     Serial.print("data: ");
-    Serial.println(tmp);
+//    Serial.println((char*)pData);
+//    Serial.println(*pData);
+    float value;
+    memcpy(&value, (char*)pData,  sizeof((char*)pData));
+    Serial.println(value);
 }
 
 class MyClientCallback : public BLEClientCallbacks {
